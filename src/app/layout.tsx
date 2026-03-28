@@ -3,8 +3,8 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "DOTACE \u2013 Digit\u00e1ln\u00ed spr\u00e1va dota\u010dn\u00edch \u017e\u00e1dost\u00ed",
-  description: "Intern\u00ed syst\u00e9m pro spr\u00e1vu dota\u010dn\u00edch \u017e\u00e1dost\u00ed krajsk\u00e9ho \u00fa\u0159adu",
+  title: "DOTACE – Digitální správa dotačních žádostí",
+  description: "Interní systém pro správu dotačních žádostí krajského úřadu",
 };
 
 export default function RootLayout({

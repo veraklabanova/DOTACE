@@ -5,7 +5,7 @@ import Link from "next/link";
 import { applications } from "@/data/mock-data";
 import { ApplicationState, STATE_LABELS } from "@/lib/types";
 import StateBadge from "@/components/StateBadge";
-import { formatCurrency, formatDate } from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
 
 const ALL_STATES: ApplicationState[] = [
   "NOVA",
@@ -43,13 +43,13 @@ export default function ZadostiPage() {
     <div className="p-8">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold">\u017d\u00e1dosti o dotaci</h1>
+          <h1 className="text-2xl font-bold">{"Žádosti o dotaci"}</h1>
           <p className="text-slate-500 text-sm mt-1">
-            Celkem {applications.length} \u017e\u00e1dost\u00ed
+            {"Celkem"} {applications.length} {"žádostí"}
           </p>
         </div>
         <button className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors">
-          + Nov\u00e1 \u017e\u00e1dost
+          {"+ Nová žádost"}
         </button>
       </div>
 
@@ -57,7 +57,7 @@ export default function ZadostiPage() {
         <div className="flex flex-wrap gap-3">
           <input
             type="text"
-            placeholder="Hledat (\u010d\u00edslo, n\u00e1zev, I\u010cO, subjekt)..."
+            placeholder="Hledat (číslo, název, IČO, subjekt)..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="flex-1 min-w-[200px] px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10"
@@ -69,7 +69,7 @@ export default function ZadostiPage() {
             }
             className="px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10"
           >
-            <option value="">V\u0161echny stavy</option>
+            <option value="">{"Všechny stavy"}</option>
             {ALL_STATES.map((s) => (
               <option key={s} value={s}>
                 {STATE_LABELS[s]}
@@ -81,7 +81,7 @@ export default function ZadostiPage() {
             onChange={(e) => setReferentFilter(e.target.value)}
             className="px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10"
           >
-            <option value="">V\u0161ichni referenti</option>
+            <option value="">{"Všichni referenti"}</option>
             {referents.map((r) => (
               <option key={r} value={r}>
                 {r}
@@ -95,30 +95,14 @@ export default function ZadostiPage() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50">
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                \u010c\u00edslo
-              </th>
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                N\u00e1zev
-              </th>
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                \u017dadatel
-              </th>
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                Program
-              </th>
-              <th className="text-right px-4 py-3 font-medium text-slate-500">
-                \u010c\u00e1stka
-              </th>
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                Stav
-              </th>
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                SLA
-              </th>
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                Referent
-              </th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"Číslo"}</th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"Název"}</th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"Žadatel"}</th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"Program"}</th>
+              <th className="text-right px-4 py-3 font-medium text-slate-500">{"Částka"}</th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"Stav"}</th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"SLA"}</th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"Referent"}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-50">
@@ -158,12 +142,12 @@ export default function ZadostiPage() {
                 <td className="px-4 py-3">
                   {app.slaPaused ? (
                     <span className="text-orange-500 text-xs font-medium">
-                      Pozastaveno
+                      {"Pozastaveno"}
                     </span>
                   ) : ["SCHVALENO", "ZAMITNUTO", "ARCHIVOVANO"].includes(
                       app.state
                     ) ? (
-                    <span className="text-slate-400 text-xs">\u2014</span>
+                    <span className="text-slate-400 text-xs">{"\u2014"}</span>
                   ) : (
                     <span
                       className={`text-xs font-medium ${
@@ -174,7 +158,7 @@ export default function ZadostiPage() {
                           : "text-green-600"
                       }`}
                     >
-                      {app.slaRemainingDays} dn\u00ed
+                      {app.slaRemainingDays} {"dní"}
                     </span>
                   )}
                 </td>
@@ -189,7 +173,7 @@ export default function ZadostiPage() {
                   colSpan={8}
                   className="px-4 py-12 text-center text-slate-400"
                 >
-                  \u017d\u00e1dn\u00e9 \u017e\u00e1dosti neodpov\u00eddaj\u00ed zvolen\u00fdm filtr\u016fm.
+                  {"Žádné žádosti neodpovídají zvoleným filtrům."}
                 </td>
               </tr>
             )}

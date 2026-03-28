@@ -42,41 +42,41 @@ export default function Dashboard() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold">P\u0159ehled</h1>
+        <h1 className="text-2xl font-bold">{"Přehled"}</h1>
         <p className="text-slate-500 text-sm mt-1">
-          Dashboard dota\u010dn\u00edho syst\u00e9mu krajsk\u00e9ho \u00fa\u0159adu
+          {"Dashboard dotačního systému krajského úřadu"}
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard
-          label="Celkem \u017e\u00e1dost\u00ed"
+          label="Celkem žádostí"
           value={String(dashboardStats.totalApplications)}
-          sub={`${dashboardStats.pendingReview} rozpracovan\u00fdch`}
+          sub={`${dashboardStats.pendingReview} rozpracovaných`}
           color="text-slate-900"
         />
         <StatCard
-          label="Schv\u00e1leno"
+          label="Schváleno"
           value={String(dashboardStats.approved)}
           sub={formatCurrency(dashboardStats.totalApproved)}
           color="text-green-600"
         />
         <StatCard
-          label="Zam\u00edtnuto"
+          label="Zamítnuto"
           value={String(dashboardStats.rejected)}
           color="text-red-600"
         />
         <StatCard
-          label="Pr\u016fm. doba zpracov\u00e1n\u00ed"
-          value={`${dashboardStats.avgProcessingDays} dn\u00ed`}
-          sub={`${dashboardStats.slaBreaches} p\u0159ekro\u010den\u00ed SLA`}
+          label="Prům. doba zpracování"
+          value={`${dashboardStats.avgProcessingDays} dní`}
+          sub={`${dashboardStats.slaBreaches} překročení SLA`}
           color="text-slate-900"
         />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         <div className="lg:col-span-2 bg-white rounded-xl border border-slate-200 p-5">
-          <h2 className="text-lg font-semibold mb-4">Po\u017eadovan\u00e9 vs. schv\u00e1len\u00e9 prost\u0159edky</h2>
+          <h2 className="text-lg font-semibold mb-4">{"Požadované vs. schválené prostředky"}</h2>
           <div className="space-y-3">
             {budgetPrograms.map((bp) => {
               const usedPct =
@@ -111,17 +111,17 @@ export default function Dashboard() {
           <div className="flex gap-4 mt-4 text-xs text-slate-500">
             <span className="flex items-center gap-1">
               <span className="w-3 h-3 rounded bg-green-500 inline-block" />
-              Schv\u00e1leno
+              {"Schváleno"}
             </span>
             <span className="flex items-center gap-1">
               <span className="w-3 h-3 rounded bg-yellow-400 inline-block" />
-              Rezervov\u00e1no
+              {"Rezervováno"}
             </span>
           </div>
         </div>
 
         <div className="bg-white rounded-xl border border-slate-200 p-5">
-          <h2 className="text-lg font-semibold mb-4">\u017d\u00e1dosti dle stavu</h2>
+          <h2 className="text-lg font-semibold mb-4">{"Žádosti dle stavu"}</h2>
           <div className="space-y-2">
             {(Object.entries(stateCounts) as [ApplicationState, number][]).map(
               ([state, count]) => (
@@ -144,7 +144,7 @@ export default function Dashboard() {
             <svg className="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
             </svg>
-            Bl\u00ed\u017e\u00edc\u00ed se lh\u016fty
+            {"Blížící se lhůty"}
           </h2>
           <div className="divide-y divide-slate-100">
             {urgentApps.map((app) => (
@@ -161,7 +161,7 @@ export default function Dashboard() {
                 </div>
                 <div className="text-right">
                   <span className="text-sm font-bold text-red-600">
-                    {app.slaRemainingDays} dn\u00ed
+                    {app.slaRemainingDays} {"dní"}
                   </span>
                   <p className="text-xs text-slate-400">{STATE_LABELS[app.state]}</p>
                 </div>

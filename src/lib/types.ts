@@ -9,14 +9,14 @@ export type ApplicationState =
   | "ARCHIVOVANO";
 
 export const STATE_LABELS: Record<ApplicationState, string> = {
-  NOVA: "Nov\u00e1",
-  FORMALNI_KONTROLA: "Form\u00e1ln\u00ed kontrola",
-  DOPLNENI: "Dopln\u011bn\u00ed",
-  VECNE_HODNOCENI: "V\u011bcn\u00e9 hodnocen\u00ed",
-  PRIPRAVENO_K_ROZHODNUTI: "P\u0159ipraveno k rozhodnut\u00ed",
-  SCHVALENO: "Schv\u00e1leno",
-  ZAMITNUTO: "Zam\u00edtnuto",
-  ARCHIVOVANO: "Archivov\u00e1no",
+  NOVA: "Nová",
+  FORMALNI_KONTROLA: "Formální kontrola",
+  DOPLNENI: "Doplnění",
+  VECNE_HODNOCENI: "Věcné hodnocení",
+  PRIPRAVENO_K_ROZHODNUTI: "Připraveno k rozhodnutí",
+  SCHVALENO: "Schváleno",
+  ZAMITNUTO: "Zamítnuto",
+  ARCHIVOVANO: "Archivováno",
 };
 
 export const STATE_COLORS: Record<ApplicationState, string> = {
@@ -52,7 +52,7 @@ export interface Subject {
 
 export interface Application {
   id: string;
-  jid: string; // eSSL document ID
+  jid: string;
   title: string;
   programName: string;
   state: ApplicationState;

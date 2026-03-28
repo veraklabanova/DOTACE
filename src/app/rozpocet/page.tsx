@@ -14,37 +14,37 @@ export default function RozpocetPage() {
     <div className="p-8">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold">Rozpo\u010det dota\u010dn\u00edch program\u016f</h1>
+          <h1 className="text-2xl font-bold">{"Rozpočet dotačních programů"}</h1>
           <p className="text-slate-500 text-sm mt-1">
-            P\u0159ehled alokac\u00ed a \u010derp\u00e1n\u00ed pro rok 2025
+            {"Přehled alokací a čerpání pro rok 2025"}
           </p>
         </div>
         <button className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors">
-          Import XLSX
+          {"Import XLSX"}
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white rounded-xl border border-slate-200 p-5">
-          <p className="text-sm text-slate-500">Celkov\u00e1 alokace</p>
+          <p className="text-sm text-slate-500">{"Celková alokace"}</p>
           <p className="text-2xl font-bold mt-1">
             {formatCurrency(totalAllocation)}
           </p>
         </div>
         <div className="bg-white rounded-xl border border-slate-200 p-5">
-          <p className="text-sm text-slate-500">Schv\u00e1leno</p>
+          <p className="text-sm text-slate-500">{"Schváleno"}</p>
           <p className="text-2xl font-bold mt-1 text-green-600">
             {formatCurrency(totalApproved)}
           </p>
         </div>
         <div className="bg-white rounded-xl border border-slate-200 p-5">
-          <p className="text-sm text-slate-500">Rezervov\u00e1no</p>
+          <p className="text-sm text-slate-500">{"Rezervováno"}</p>
           <p className="text-2xl font-bold mt-1 text-yellow-600">
             {formatCurrency(totalReserved)}
           </p>
         </div>
         <div className="bg-white rounded-xl border border-slate-200 p-5">
-          <p className="text-sm text-slate-500">Zb\u00fdv\u00e1</p>
+          <p className="text-sm text-slate-500">{"Zbývá"}</p>
           <p className="text-2xl font-bold mt-1 text-blue-600">
             {formatCurrency(totalRemaining)}
           </p>
@@ -55,27 +55,13 @@ export default function RozpocetPage() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50">
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                Dota\u010dn\u00ed program
-              </th>
-              <th className="text-right px-4 py-3 font-medium text-slate-500">
-                Alokace
-              </th>
-              <th className="text-right px-4 py-3 font-medium text-slate-500">
-                Schv\u00e1leno
-              </th>
-              <th className="text-right px-4 py-3 font-medium text-slate-500">
-                Rezervov\u00e1no
-              </th>
-              <th className="text-right px-4 py-3 font-medium text-slate-500">
-                Zb\u00fdv\u00e1
-              </th>
-              <th className="text-center px-4 py-3 font-medium text-slate-500">
-                \u017d\u00e1dost\u00ed
-              </th>
-              <th className="text-left px-4 py-3 font-medium text-slate-500">
-                \u010cerp\u00e1n\u00ed
-              </th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"Dotační program"}</th>
+              <th className="text-right px-4 py-3 font-medium text-slate-500">{"Alokace"}</th>
+              <th className="text-right px-4 py-3 font-medium text-slate-500">{"Schváleno"}</th>
+              <th className="text-right px-4 py-3 font-medium text-slate-500">{"Rezervováno"}</th>
+              <th className="text-right px-4 py-3 font-medium text-slate-500">{"Zbývá"}</th>
+              <th className="text-center px-4 py-3 font-medium text-slate-500">{"Žádostí"}</th>
+              <th className="text-left px-4 py-3 font-medium text-slate-500">{"Čerpání"}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-50">
@@ -122,7 +108,7 @@ export default function RozpocetPage() {
                       </div>
                     </div>
                     <p className="text-xs text-slate-400 mt-1">
-                      {usedPct.toFixed(0)}% vyu\u017eito
+                      {usedPct.toFixed(0)}{"% využito"}
                     </p>
                   </td>
                 </tr>
@@ -131,7 +117,7 @@ export default function RozpocetPage() {
           </tbody>
           <tfoot>
             <tr className="border-t-2 border-slate-200 bg-slate-50 font-semibold">
-              <td className="px-4 py-3">Celkem</td>
+              <td className="px-4 py-3">{"Celkem"}</td>
               <td className="px-4 py-3 text-right">
                 {formatCurrency(totalAllocation)}
               </td>
@@ -178,9 +164,7 @@ export default function RozpocetPage() {
       </div>
 
       <div className="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
-        <strong>Ochrana rozpo\u010dtu:</strong> Syst\u00e9m automaticky blokuje schv\u00e1len\u00ed
-        \u017e\u00e1dosti, pokud by po\u017eadovan\u00e1 \u010d\u00e1stka p\u0159ekro\u010dila zb\u00fdvaj\u00edc\u00ed alokaci
-        dota\u010dn\u00edho programu (princip \u010dty\u0159 o\u010d\u00ed).
+        <strong>{"Ochrana rozpočtu:"}</strong> {"Systém automaticky blokuje schválení žádosti, pokud by požadovaná částka překročila zbývající alokaci dotačního programu (princip čtyř očí)."}
       </div>
     </div>
   );

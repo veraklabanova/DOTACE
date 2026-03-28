@@ -87,9 +87,9 @@ export default function ZadostDetail({
   if (!app) {
     return (
       <div className="p-8">
-        <p className="text-slate-500">\u017d\u00e1dost {id} nebyla nalezena.</p>
+        <p className="text-slate-500">{"Žádost"} {id} {"nebyla nalezena."}</p>
         <Link href="/zadosti" className="text-blue-600 hover:underline text-sm mt-2 inline-block">
-          &larr; Zp\u011bt na seznam
+          {"← Zpět na seznam"}
         </Link>
       </div>
     );
@@ -108,13 +108,13 @@ export default function ZadostDetail({
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
-          Zp\u011bt na seznam
+          {"Zpět na seznam"}
         </Link>
         <div className="flex items-start justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold">{app.title}</h1>
             <p className="text-slate-500 text-sm mt-1">
-              {app.id} &middot; JID: {app.jid}
+              {app.id} · JID: {app.jid}
             </p>
           </div>
           <StateBadge state={app.state} />
@@ -123,7 +123,7 @@ export default function ZadostDetail({
 
       <div className="bg-white rounded-xl border border-slate-200 p-5 mb-6">
         <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">
-          Pr\u016fb\u011bh workflow
+          {"Průběh workflow"}
         </h2>
         <WorkflowStepper currentState={app.state} />
       </div>
@@ -131,37 +131,37 @@ export default function ZadostDetail({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <div className="bg-white rounded-xl border border-slate-200 p-5">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
-            \u017dadatel
+            {"Žadatel"}
           </h2>
           <dl className="space-y-3 text-sm">
             <div className="flex justify-between">
-              <dt className="text-slate-500">N\u00e1zev</dt>
+              <dt className="text-slate-500">{"Název"}</dt>
               <dd className="font-medium text-right">{app.subject.name}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-500">I\u010cO</dt>
+              <dt className="text-slate-500">{"IČO"}</dt>
               <dd className="font-mono">{app.subject.ico}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-500">Adresa</dt>
+              <dt className="text-slate-500">{"Adresa"}</dt>
               <dd className="text-right max-w-[250px]">{app.subject.address}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-500">Pr\u00e1vn\u00ed forma</dt>
+              <dt className="text-slate-500">{"Právní forma"}</dt>
               <dd>{app.subject.legalForm}</dd>
             </div>
             <div className="flex justify-between items-center">
-              <dt className="text-slate-500">ARES ov\u011b\u0159en\u00ed</dt>
+              <dt className="text-slate-500">{"ARES ověření"}</dt>
               <dd>
                 {app.subject.aresVerified ? (
                   <span className="inline-flex items-center gap-1 text-green-600">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    Ov\u011b\u0159eno
+                    {"Ověřeno"}
                   </span>
                 ) : (
-                  <span className="text-red-600">Neov\u011b\u0159eno</span>
+                  <span className="text-red-600">{"Neověřeno"}</span>
                 )}
               </dd>
             </div>
@@ -170,48 +170,48 @@ export default function ZadostDetail({
 
         <div className="bg-white rounded-xl border border-slate-200 p-5">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
-            Detaily \u017e\u00e1dosti
+            {"Detaily žádosti"}
           </h2>
           <dl className="space-y-3 text-sm">
             <div className="flex justify-between">
-              <dt className="text-slate-500">Dota\u010dn\u00ed program</dt>
+              <dt className="text-slate-500">{"Dotační program"}</dt>
               <dd className="font-medium text-right">{app.programName}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-500">Po\u017eadovan\u00e1 \u010d\u00e1stka</dt>
+              <dt className="text-slate-500">{"Požadovaná částka"}</dt>
               <dd className="font-bold">{formatCurrency(app.requestedAmount)}</dd>
             </div>
             {app.approvedAmount !== null && (
               <div className="flex justify-between">
-                <dt className="text-slate-500">Schv\u00e1len\u00e1 \u010d\u00e1stka</dt>
+                <dt className="text-slate-500">{"Schválená částka"}</dt>
                 <dd className="font-bold text-green-600">
                   {formatCurrency(app.approvedAmount)}
                 </dd>
               </div>
             )}
             <div className="flex justify-between">
-              <dt className="text-slate-500">Referent</dt>
+              <dt className="text-slate-500">{"Referent"}</dt>
               <dd>{app.referent}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-500">Vytvo\u0159eno</dt>
+              <dt className="text-slate-500">{"Vytvořeno"}</dt>
               <dd>{formatDate(app.createdAt)}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-500">Posledn\u00ed zm\u011bna</dt>
+              <dt className="text-slate-500">{"Poslední změna"}</dt>
               <dd>{formatDate(app.updatedAt)}</dd>
             </div>
             <div className="flex justify-between items-center">
-              <dt className="text-slate-500">SLA lh\u016fta</dt>
+              <dt className="text-slate-500">{"SLA lhůta"}</dt>
               <dd>
                 {app.slaPaused ? (
                   <span className="text-orange-500 font-medium">
-                    Pozastaveno (Dopln\u011bn\u00ed)
+                    {"Pozastaveno (Doplnění)"}
                   </span>
                 ) : ["SCHVALENO", "ZAMITNUTO", "ARCHIVOVANO"].includes(
                     app.state
                   ) ? (
-                  <span className="text-slate-400">Ukon\u010deno</span>
+                  <span className="text-slate-400">{"Ukončeno"}</span>
                 ) : (
                   <span
                     className={`font-medium ${
@@ -222,7 +222,7 @@ export default function ZadostDetail({
                         : "text-green-600"
                     }`}
                   >
-                    {app.slaRemainingDays} dn\u00ed do {formatDate(app.deadline)}
+                    {app.slaRemainingDays} {"dní do"} {formatDate(app.deadline)}
                   </span>
                 )}
               </dd>
@@ -234,7 +234,7 @@ export default function ZadostDetail({
       {app.notes && (
         <div className="bg-white rounded-xl border border-slate-200 p-5 mb-6">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">
-            Pozn\u00e1mky
+            {"Poznámky"}
           </h2>
           <p className="text-sm text-slate-700">{app.notes}</p>
         </div>
@@ -243,19 +243,19 @@ export default function ZadostDetail({
       {possibleTransitions.length > 0 && (
         <div className="bg-white rounded-xl border border-slate-200 p-5 mb-6">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">
-            Akce
+            {"Akce"}
           </h2>
           {!showTransition ? (
             <button
               onClick={() => setShowTransition(true)}
               className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors"
             >
-              Zm\u011bnit stav \u017e\u00e1dosti
+              {"Změnit stav žádosti"}
             </button>
           ) : (
             <div className="space-y-3">
               <p className="text-sm text-slate-600">
-                Mo\u017en\u00e9 p\u0159echody z aktu\u00e1ln\u00edho stavu{" "}
+                {"Možné přechody z aktuálního stavu"}{" "}
                 <strong>{STATE_LABELS[app.state]}</strong>:
               </p>
               <div className="flex flex-wrap gap-2">
@@ -264,7 +264,7 @@ export default function ZadostDetail({
                     key={target}
                     onClick={() => {
                       alert(
-                        `[PROTOTYP] P\u0159echod: ${STATE_LABELS[app.state]} \u2192 ${STATE_LABELS[target]}\n\nV produk\u010dn\u00ed verzi bude zalogov\u00e1no do auditn\u00edho logu s hash-chainem.`
+                        `[PROTOTYP] Přechod: ${STATE_LABELS[app.state]} → ${STATE_LABELS[target]}\n\nV produkční verzi bude zalogováno do auditního logu s hash-chainem.`
                       );
                       setShowTransition(false);
                     }}
@@ -276,7 +276,7 @@ export default function ZadostDetail({
                         : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                     }`}
                   >
-                    \u2192 {STATE_LABELS[target]}
+                    {"→"} {STATE_LABELS[target]}
                   </button>
                 ))}
               </div>
@@ -284,7 +284,7 @@ export default function ZadostDetail({
                 onClick={() => setShowTransition(false)}
                 className="text-sm text-slate-500 hover:text-slate-700"
               >
-                Zru\u0161it
+                {"Zrušit"}
               </button>
             </div>
           )}
@@ -294,7 +294,7 @@ export default function ZadostDetail({
       {relatedAudit.length > 0 && (
         <div className="bg-white rounded-xl border border-slate-200 p-5">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
-            Historie zm\u011bn
+            {"Historie změn"}
           </h2>
           <div className="space-y-3">
             {relatedAudit.map((entry) => (
@@ -306,7 +306,7 @@ export default function ZadostDetail({
                   <p className="font-medium">{entry.action}</p>
                   <p className="text-slate-500">{entry.detail}</p>
                   <p className="text-xs text-slate-400 mt-1">
-                    {formatDateTime(entry.timestamp)} &middot; {entry.user}
+                    {formatDateTime(entry.timestamp)} · {entry.user}
                   </p>
                 </div>
                 <span className="text-xs font-mono text-slate-300 shrink-0">
